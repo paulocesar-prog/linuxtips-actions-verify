@@ -38,11 +38,13 @@ runs:
         terrascan
     - name: Scan Docker
       shell: bash
-      run: echo "Scan Docker"
+      run: |
+        bash "${{ github.action_patch}}/scripts/scan-docker.sh"
 
     - name: Scan Terraform
       shell: bash
-      run: echo "Scan Terraform" 
+      run: |
+        bash "${{ github.action_patch}}/scripts/scan-terraform.sh" 
 
 
  
