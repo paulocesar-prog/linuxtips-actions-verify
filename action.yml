@@ -39,12 +39,12 @@ runs:
     - name: Scan Docker
       shell: bash
       run: |
-        bash "${{ github.action_patch}}/scripts/scan-docker.sh"
+        bash "${{ github.action_path }}/scripts/scan-docker.sh"
 
     - name: Scan Terraform
       shell: bash
       run: |
-        bash "${{ github.action_patch}}/scripts/scan-terraform.sh" 
+        bash "${{ github.action_patch }}/scripts/scan-terraform.sh" 
 
 
  
