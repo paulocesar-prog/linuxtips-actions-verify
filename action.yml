@@ -1,4 +1,9 @@
-name: Check Lint and Scan Docker/Terraform Vulnerabilities
+name: 'Security Scan - Docker & Terraform'
+description: 'Automated security scanning for Dockerfiles and Terraform using Hadolint, Trivy, and Terrascan with auto issue creation'
+
+branding:
+  icon: 'shield'
+  color: 'red'
 
 inputs:
   docker-context:
