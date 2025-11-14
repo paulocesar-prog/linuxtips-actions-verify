@@ -7,7 +7,7 @@ branding:
 
 inputs:
   docker-context:
-    default: '.'
+    default: 'app'
     required: false
     description: 'Diretório onde está o Dockerfile dentro do repo'
 
