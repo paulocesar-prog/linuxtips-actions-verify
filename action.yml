@@ -36,16 +36,25 @@ runs:
         curl -sL "$TERRASCAN_URL" -o terrascan.tar.gz
         tar -xf terrascan.tar.gz terrascan && sudo install terrascan /usr/local/bin && rm terrascan terrascan.tar.gz
         terrascan
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
     - name: Scan Docker
       shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        BUILD_CONTEXT:  ${{ github.event.inputs.docker-context }}
       run: |
         bash "${{ github.action_path }}/scripts/scan-docker.sh"
 
     - name: Scan Terraform
       shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
       run: |
         bash "${{ github.action_path }}/scripts/scan-terraform.sh"
-    
+
     - name: Fail If Problems Were Found
       shell: bash
       run: |
@@ -55,7 +64,3 @@ runs:
         else
           echo "Nenhum problema pendente"
         fi
-
-
-
- 
